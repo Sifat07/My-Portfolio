@@ -8,21 +8,43 @@
   flex-grow: 1;
 }
 
+.logoLink {
+  text-decoration: none;
+  background: transparent;
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-self: flex-start;
+}
+
 .navMenu {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  column-gap: 1rem;
-  > a {
-    text-decoration: none;
-    font-size: 1rem;
-    color: $light-green;
-    font-size: 1.5rem;
-  }
+  column-gap: 2rem;
+  padding: 20px;
 
-  .logo {
-    display: flex;
-    justify-content: center;
-    align-self: flex-start;
+  .navLink {
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 2px solid transparent;
+
+    &:hover {
+      color: $palegold;
+      border-bottom: 2px solid $palegold;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .navMenu {
+    column-gap: 1rem;
+    padding: 10px;
+    .navLink {
+      font-size: 0.9rem;
+    }
   }
 }

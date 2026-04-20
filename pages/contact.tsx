@@ -1,17 +1,74 @@
-import Link from "next/link";
-import router from "next/router";
 import React from "react";
-import { Logo } from "../components/Logo";
+import Nav from "../components/Nav";
 import styles from "./contact.module.scss";
+import { FaEnvelope, FaPhone, FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
+import { motion } from "framer-motion";
 
-const contact = () => {
+const Contact = () => {
+  const contactMethods = [
+    {
+      icon: <FaEnvelope />,
+      label: "Email",
+      value: "sifatjasim@gmail.com",
+      link: "mailto:sifatjasim@gmail.com",
+    },
+    {
+      icon: <FaPhone />,
+      label: "Phone",
+      value: "+880 1670 950 940",
+      link: "tel:+8801670950940",
+    },
+    {
+      icon: <FaLinkedin />,
+      label: "LinkedIn",
+      value: "sifatjasim",
+      link: "https://www.linkedin.com/in/sifat-jasim-81ab8580/",
+    },
+    {
+      icon: <FaGithub />,
+      label: "GitHub",
+      value: "Sifat07",
+      link: "https://github.com/Sifat07",
+    },
+  ];
+
   return (
     <div className={styles.container}>
-      <button onClick={() => router.push("/")}>
-        <Logo />
-      </button>
+      <Nav />
+      
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className={styles.content}
+      >
+        <h1 className={styles.title}>Get in Touch</h1>
+        <p className={styles.description}>
+          I{"'"}m always open to discussing new projects, creative ideas or opportunities to be part of your visions.
+        </p>
+
+        <div className={styles.contactGrid}>
+          {contactMethods.map((method, index) => (
+            <motion.a
+              key={index}
+              href={method.link}
+              target="_blank"
+              rel="noreferrer"
+              className={styles.contactCard}
+              whileHover={{ scale: 1.05, borderColor: "#e8c99b" }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div className={styles.icon}>{method.icon}</div>
+              <div className={styles.info}>
+                <span className={styles.label}>{method.label}</span>
+                <span className={styles.value}>{method.value}</span>
+              </div>
+            </motion.a>
+          ))}
+        </div>
+      </motion.div>
     </div>
   );
 };
 
-export default contact;
+export default Contact;

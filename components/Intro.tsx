@@ -101,7 +101,7 @@ const Intro = () => {
       animate="animate"
       exit={{ opacity: 0 }}
       className={styles.container}
-      onTouchStart={() => changeText()}
+      onClick={() => changeText()}
     >
       <motion.div
         animate={{ opacity: 1 }}
@@ -117,9 +117,10 @@ const Intro = () => {
               onHoverStart={(e) => showContactText()}
               onHoverEnd={(e) => hideContactText()}
               style={{ cursor: "pointer", color: "white" }}
-              onClick={
-                contactText == "Contact" ? () => router.push("/contact") : null
-              }
+              onClick={(e) => {
+                e.stopPropagation();
+                if (contactText == "Contact") router.push("/contact");
+              }}
             >
               {contactText}
             </motion.h1>
@@ -148,7 +149,10 @@ const Intro = () => {
               onHoverStart={(e) => showWorkText()}
               onHoverEnd={(e) => hideWorkText()}
               style={{ cursor: "pointer" }}
-              onClick={workText == "Work" ? () => router.push("/work") : null}
+              onClick={(e) => {
+                e.stopPropagation();
+                if (workText == "Work") router.push("/work");
+              }}
             >
               {workText}
             </motion.h1>
@@ -175,9 +179,10 @@ const Intro = () => {
               onHoverStart={(e) => showAboutText()}
               onHoverEnd={(e) => hideAboutText()}
               style={{ cursor: "pointer" }}
-              onClick={
-                aboutText == "About" ? () => router.push("/about") : null
-              }
+              onClick={(e) => {
+                e.stopPropagation();
+                if (aboutText == "About") router.push("/about");
+              }}
             >
               {aboutText}
             </motion.h1>
@@ -204,6 +209,7 @@ const Intro = () => {
           href={"https://github.com/Sifat07"}
           target="_blank"
           rel="noreferrer"
+          onClick={(e) => e.stopPropagation()}
         >
           <FaGithub fill="#e8c99b" size="2.5rem" cursor="pointer" />
         </motion.a>
@@ -212,6 +218,7 @@ const Intro = () => {
           href="https://www.linkedin.com/in/sifat-jasim-81ab8580/"
           target="_blank"
           rel="noreferrer"
+          onClick={(e) => e.stopPropagation()}
         >
           {" "}
           <FaLinkedinIn fill="#e8c99b" size="2.5rem" cursor="pointer" />
@@ -221,6 +228,7 @@ const Intro = () => {
           href="https://twitter.com/Sifat_sr4"
           target="_blank"
           rel="noreferrer"
+          onClick={(e) => e.stopPropagation()}
         >
           {" "}
           <FaTwitter fill="#e8c99b" size="2.5rem" cursor="pointer" />
@@ -230,6 +238,7 @@ const Intro = () => {
           href="https://www.youtube.com/channel/UCnSSV3HEPk-wBm-1c38s5yA"
           target="_blank"
           rel="noreferrer"
+          onClick={(e) => e.stopPropagation()}
         >
           <FaYoutube fill="#e8c99b" size="2.5rem" />
         </motion.a>
@@ -238,6 +247,7 @@ const Intro = () => {
           href="https://www.facebook.com/Madridista.Sifat7/"
           target="_blank"
           rel="noreferrer"
+          onClick={(e) => e.stopPropagation()}
         >
           {" "}
           <FaFacebook fill="#e8c99b" size="2.5rem" cursor="pointer" />

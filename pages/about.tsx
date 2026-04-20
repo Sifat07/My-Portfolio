@@ -3,13 +3,15 @@ import router from "next/router";
 import React, { useState } from "react";
 import Education from "../components/Education";
 import Experience from "../components/Experience";
-import { Logo } from "../components/Logo";
+import Nav from "../components/Nav";
 import Skills from "../components/Skills";
 import styles from "./about.module.scss";
 import TabC from "../components/Tab/Tabs";
 import Tabs from "../components/Tab/Tabs";
 import Image from "next/image";
 import avatarImage from "../components/assets/images/IMG_1050.png";
+
+import GitHubActivity from "../components/GitHubActivity";
 
 type TabsType = {
   label: string;
@@ -34,15 +36,18 @@ const tabs: TabsType = [
     index: 3,
     Component: Skills,
   },
+  {
+    label: "GitHub",
+    index: 4,
+    Component: GitHubActivity,
+  },
 ];
 
 const About = () => {
   const [selectedTab, setSelectedTab] = useState<number>(tabs[0].index);
   return (
     <div className={styles.container}>
-      <button onClick={() => router.push("/")}>
-        <Logo />
-      </button>
+      <Nav />
       <div className={styles.aboutContainer}>
         <div className={styles.aboutText}>
           <h1>

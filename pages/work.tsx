@@ -1,15 +1,13 @@
 import Link from "next/link";
 import router from "next/router";
 import React from "react";
-import { Logo } from "../components/Logo";
+import Nav from "../components/Nav";
 import styles from "./work.module.scss";
 
 const Work = () => {
   return (
     <div className={styles.container}>
-      <button onClick={() => router.push("/")}>
-        <Logo />
-      </button>
+      <Nav />
 
       <h1 className={styles.title}>Featured Work</h1>
 

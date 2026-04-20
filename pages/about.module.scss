@@ -2,22 +2,14 @@
 .container {
   display: flex;
   flex-direction: column;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   justify-content: flex-start;
   align-items: center;
   background-color: $primary-black;
   color: white;
   row-gap: 3rem;
-
-  button {
-    text-decoration: none;
-    background: transparent;
-    display: flex;
-    padding: 20px;
-    justify-content: center;
-    align-self: flex-start;
-  }
+  padding-bottom: 50px;
 
   h1 {
     font-size: 6rem;
@@ -91,5 +83,41 @@
     align-self: stretch;
     //border: 1px solid crimson;
     padding: 5% 5%;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .container {
+    h1 {
+      font-size: 4rem;
+    }
+    .aboutContainer {
+      flex-direction: column;
+      row-gap: 2rem;
+      padding: 0 10%;
+    }
+    .aboutText, .avatarContainer {
+      width: 100%;
+    }
+    .tabContainer {
+      width: 90%;
+      padding: 10% 5%;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    h1 {
+      font-size: 2.5rem;
+    }
+    .aboutText {
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+    .avatar {
+      width: 90%;
+    }
   }
 }
