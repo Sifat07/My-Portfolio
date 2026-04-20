@@ -10,6 +10,8 @@ import {
   SiSass,
   SiStorybook,
   SiTypescript,
+  SiNodedotjs,
+  SiApple
 } from "react-icons/si";
 import styles from "./Skills.module.scss";
 import { DiBootstrap, DiResponsive } from "react-icons/di";
@@ -93,6 +95,18 @@ const Skills = () => {
           <SiNextdotjs fill="#e8c99b" size="2.5rem" className={styles.icon} />
           <div className={styles.progressBarContainer}>
             <div className={styles.progress} style={{ width: "50%" }}></div>
+          </div>
+        </div>
+        <div className={styles.skill}>
+          <SiNodedotjs fill="#e8c99b" size="2.5rem" className={styles.icon} />
+          <div className={styles.progressBarContainer}>
+            <div className={styles.progress} style={{ width: "65%" }}></div>
+          </div>
+        </div>
+        <div className={styles.skill}>
+          <SiApple fill="#e8c99b" size="2.5rem" className={styles.icon} />
+          <div className={styles.progressBarContainer}>
+            <div className={styles.progress} style={{ width: "40%" }}></div>
           </div>
         </div>
       </div>

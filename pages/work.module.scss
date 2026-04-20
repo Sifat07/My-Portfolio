@@ -1,14 +1,13 @@
-@import "../components/utils/variables.scss";
+@use "../components/utils/variables.scss" as *;
 .container {
   display: flex;
   flex-direction: column;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   justify-content: flex-start;
   align-items: center;
   background-color: $primary-black;
   color: white;
-  row-gap: 50px;
 
   button {
     text-decoration: none;
@@ -18,8 +17,76 @@
     justify-content: center;
     align-self: flex-start;
   }
+}
 
-  h1 {
-    font-size: 6rem;
+.title {
+  font-size: 3rem;
+  color: $palegold;
+  margin-bottom: 2rem;
+}
+
+.projectsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 80%;
+  max-width: 1000px;
+  padding-bottom: 50px;
+}
+
+.projectCard {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: $palegold;
+  }
+
+  h2 {
+    color: $palegold;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+    margin-bottom: 1.5rem;
+  }
+
+  .techStack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+
+    span {
+      background-color: rgba(232, 201, 155, 0.1);
+      color: $palegold;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+  }
+
+  .link {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 2px solid $palegold;
+    padding-bottom: 2px;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $palegold;
+    }
   }
 }

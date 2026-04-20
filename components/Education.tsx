@@ -6,23 +6,22 @@ const Education = () => {
     <div className={styles.container}>
       <div className={styles.cards}>
         <div className={styles.institute}>
-          <h3>University Of Dhaka</h3>
-          <p>( 2019-2022 )</p>
+          <h3>Institute Of Information Technology, University Of Dhaka</h3>
+          <p>( 2021 )</p>
         </div>
-        <h2>Master in Information Technology</h2>
+        <h2>Master in Information Technology (MIT)</h2>
         <p>
-          completed Master in Information Technology from University of Dhaka.
+          Completed Master in Information Technology.
         </p>
       </div>
       <div className={styles.cards}>
         <div className={styles.institute}>
           <h3>American International University-Bangladesh</h3>
-          <p>( 2013-2018 )</p>
+          <p>( 2018 )</p>
         </div>
-        <h2>Bachelor of Science in Computer Science {"&"} Engineering</h2>
+        <h2>B.Sc. in Computer Science & Engineering</h2>
         <p>
-          completed Bachelor of Science in Computer Science {"&"} Engineering
-          from American International University-Bangladesh.
+          Completed Bachelor of Science in Computer Science & Engineering.
         </p>
       </div>
     </div>

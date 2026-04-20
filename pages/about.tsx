@@ -48,9 +48,9 @@ const About = () => {
           <h1>
             <p>{"<p>"}</p>
             <br></br>
-            Hi, I{"'"}m Sifat Jasim, working as a Junior Software Engineer for
-            ngaze in Dhaka.I have serious passion for minimalistic designs, UI
-            effects, animations and creating intuitive, dynamic user
+            Hi, I{"'"}m Sifat Jasim, working as a Software Engineer for
+            ngaze in Dhaka. I have a serious passion for minimalistic designs, UI
+            effects, animations, and creating intuitive, dynamic user
             experiences.
             <br></br>
             <br></br>
@@ -71,7 +71,7 @@ const About = () => {
               className={styles.avatarImage}
               alt="Sifat Jasim"
               src={avatarImage}
-              layout="responsive"
+              style={{ width: '100%', height: 'auto' }}
               quality={100}
               placeholder="blur"
             ></Image>

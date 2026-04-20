@@ -1,7 +1,7 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 
-export function Logo(props: React.SVGProps<SVGSVGElement>): JSX.Element {
+export function Logo(props: React.SVGProps<SVGSVGElement>): React.JSX.Element {
   return (
     <div
       style={{
@@ -22,7 +22,8 @@ export function Logo(props: React.SVGProps<SVGSVGElement>): JSX.Element {
         transition={{
           ease: "easeInOut",
           duration: 2,
-          flip: Infinity,
+          repeat: Infinity,
+          repeatType: "reverse",
           repeatDelay: 5,
         }}
       >
@@ -32,7 +33,8 @@ export function Logo(props: React.SVGProps<SVGSVGElement>): JSX.Element {
               animate={{ rotate: 360 }}
               transition={{
                 ease: "easeInOut",
-                flip: Infinity,
+                repeat: Infinity,
+                repeatType: "reverse",
                 repeatDelay: 5,
                 duration: 2,
               }}
@@ -66,4 +68,3 @@ export function Logo(props: React.SVGProps<SVGSVGElement>): JSX.Element {
     </div>
   );
 }
-<svg></svg>;

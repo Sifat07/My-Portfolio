@@ -20,8 +20,8 @@ const Home = () => {
         <Image
           alt="background"
           src={bg}
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{ objectFit: 'cover' }}
           quality={100}
           placeholder="blur"
         />

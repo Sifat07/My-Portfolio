@@ -14,7 +14,7 @@ import Link from "next/link";
 import router from "next/router";
 
 // Our custom easing
-let easing = [0.6, -0.05, 0.01, 0.99];
+let easing: [number, number, number, number] = [0.6, -0.05, 0.01, 0.99];
 
 // animate: defines animation
 // initial: defines initial state of animation or stating point.
@@ -82,13 +82,15 @@ const Intro = () => {
   const bounceTransition = {
     y: {
       duration: 1,
-      yoyo: Infinity,
-      ease: "easeOut",
+      repeat: Infinity,
+      repeatType: "reverse" as const,
+      ease: "easeOut" as const,
     },
     backgroundColor: {
       duration: 0,
-      yoyo: Infinity,
-      ease: "easeOut",
+      repeat: Infinity,
+      repeatType: "reverse" as const,
+      ease: "easeOut" as const,
       repeatDelay: 2,
     },
   };
@@ -246,7 +248,7 @@ const Intro = () => {
           transition={bounceTransition}
           animate={{
             y: ["100%", "-100%"],
-            backgroundColor: "transparent",
+            backgroundColor: "rgba(0,0,0,0)",
           }}
         >
           {" "}
