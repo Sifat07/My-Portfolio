@@ -41,10 +41,18 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className={styles.content}
         >
-          <h1 className={styles.title}>Get in Touch</h1>
-          <p className={styles.description}>
-            I{"'"}m always open to discussing new projects, creative ideas or opportunities to be part of your visions.
-          </p>
+          <div className={styles.titleWrapper}>
+            <span className={styles.codeTag}>{"<h1>"}</span>
+            <h1 className={styles.title}>Get in Touch</h1>
+            <span className={styles.codeTag}>{"</h1>"}</span>
+          </div>
+          <div className={styles.descriptionWrapper}>
+            <span className={styles.codeTag}>{"<p>"}</span>
+            <p className={styles.description}>
+              I{"'"}m always open to discussing new projects, creative ideas or opportunities to be part of your visions.
+            </p>
+            <span className={styles.codeTag}>{"</p>"}</span>
+          </div>
 
           <div className={styles.contactGrid}>
             {contactMethods.map((method, index) => (

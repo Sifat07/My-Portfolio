@@ -43,13 +43,8 @@ div.container {
     }
 
     .codeTag {
-      color: $grey;
-      opacity: 0.2;
-      font-family: "pacifico", cursive;
-      font-size: 1rem;
-      font-weight: bold;
+      @include code-tag;
       line-height: 1rem;
-      user-select: none;
     }
   }
   .socials {

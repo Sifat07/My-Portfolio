@@ -47,6 +47,14 @@ $theme2-white: #feffff;
   }
 }
 
+@mixin code-tag {
+  color: $palegold;
+  opacity: 0.3;
+  font-family: "pacifico", cursive;
+  font-size: 1.1rem;
+  user-select: none;
+}
+
 @mixin body-text {
   font-size: 1.1rem;
   line-height: 1.7;

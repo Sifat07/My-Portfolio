@@ -164,6 +164,7 @@ const Intro = () => {
       </div>
 
       <div className={styles.tapBehavior}>
+        <span className={styles.codeTag}>{"<p>"}</span>
         <motion.p
           transition={bounceTransition}
           animate={{
@@ -172,6 +173,7 @@ const Intro = () => {
         >
           {isRevealed ? "Tap to hide" : "Tap Anywhere"}
         </motion.p>
+        <span className={styles.codeTag}>{"</p>"}</span>
       </div>
     </motion.div>
   );

@@ -7,7 +7,11 @@ const Work = () => {
   return (
     <Layout title="Work" description="Featured projects and engineering work by Sifat Jasim.">
       <div className={styles.container}>
-        <h1 className={styles.title}>Featured Work</h1>
+        <div className={styles.titleWrapper}>
+          <span className={styles.codeTag}>{"<h1>"}</span>
+          <h1 className={styles.title}>Featured Work</h1>
+          <span className={styles.codeTag}>{"</h1>"}</span>
+        </div>
 
         <div className={styles.projectsGrid}>
           {projectsData.map((project, index) => (

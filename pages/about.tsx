@@ -63,11 +63,13 @@ const About = () => {
           </div>
 
           <div className={styles.aboutText}>
-            <span className={styles.codeTag}>{"<intro>"}</span>
+            <span className={styles.codeTag}>{"<h1>"}</span>
             <h1>
               Hi, I'm <span>Sifat Jasim</span>
             </h1>
+                        <span className={styles.codeTag}>{"</h1>"}</span>
             <div className={styles.bioContent}>
+              <span className={styles.codeTag}>{"<p>"}</span>
               <p>
                 I'm a Software Engineer based in Dhaka, currently engineering 
                 impactful solutions at <strong>ngaze</strong>. My passion lies in crafting 
@@ -82,8 +84,9 @@ const About = () => {
                 I thrive in the entire frontend spectrum and love collaborating on 
                 ambitious projects with forward-thinking people.
               </p>
+              <span className={styles.codeTag}>{"</p>"}</span>
             </div>
-            <span className={styles.codeTag}>{"</intro>"}</span>
+
           </div>
         </div>
 
