@@ -23,10 +23,10 @@ const Work = () => {
           </p>
           <div className={styles.techStack}>
             <span>Next.js</span>
-            <span>TypeScript</span>
-            <span>React</span>
-            <span>Pathao SDK</span>
+            <span>Supabase</span>
             <span>Tailwind CSS</span>
+            <span>TypeScript</span>
+            <span>Pathao SDK</span>
           </div>
           <a href="https://www.madridismocorner.com/" target="_blank" rel="noreferrer" className={styles.link}>
             Visit Website &rarr;
@@ -43,10 +43,13 @@ const Work = () => {
           </p>
           <div className={styles.techStack}>
             <span>Next.js</span>
-            <span>React</span>
-            <span>Node.js</span>
-            <span>MongoDB</span>
-            <span>SCSS</span>
+            <span>TypeScript</span>
+            <span>Fastify</span>
+            <span>Prisma</span>
+            <span>Pathao SDK</span>
+            <span>Tailwind CSS</span>
+            <span>AWS S3</span>
+            <span>AWS SES</span>
           </div>
           <a href="https://pmadridistabd.com/" target="_blank" rel="noreferrer" className={styles.link}>
             Visit Website &rarr;

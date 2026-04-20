@@ -11,102 +11,101 @@ import {
   SiStorybook,
   SiTypescript,
   SiNodedotjs,
-  SiApple
+  SiTailwindcss,
+  SiPrisma,
+  SiFastify,
+  SiMysql,
+  SiDocker,
+  SiGooglecloud,
+  SiGithubactions,
+  SiSupabase,
 } from "react-icons/si";
 import styles from "./Skills.module.scss";
-import { DiBootstrap, DiResponsive } from "react-icons/di";
+import { DiResponsive } from "react-icons/di";
 import { FaSass } from "react-icons/fa";
-import { FiFramer } from "react-icons/fi";
-import { CgFramer } from "react-icons/cg";
 
 const Skills = () => {
   return (
     <div className={styles.skillContainers}>
       <div className={styles.skillContainer1}>
-        <div className={styles.skill}>
-          <SiCss3 fill="#e8c99b" size="2.5rem" className={styles.icon} />
+        <div className={styles.skill} title="React">
+          <SiReact fill="#e8c99b" size="2.5rem" className={styles.icon} />
+          <div className={styles.progressBarContainer}>
+            <div className={styles.progress} style={{ width: "95%" }}></div>
+          </div>
+        </div>
+        <div className={styles.skill} title="Next.js">
+          <SiNextdotjs fill="#e8c99b" size="2.5rem" className={styles.icon} />
           <div className={styles.progressBarContainer}>
             <div className={styles.progress} style={{ width: "90%" }}></div>
           </div>
         </div>
-        <div className={styles.skill}>
-          <SiHtml5 fill="#e8c99b" size="2.5rem" className={styles.icon} />
+        <div className={styles.skill} title="TypeScript">
+          <SiTypescript fill="#e8c99b" size="2.5rem" className={styles.icon} />
           <div className={styles.progressBarContainer}>
             <div className={styles.progress} style={{ width: "90%" }}></div>
           </div>
         </div>
-        <div className={styles.skill}>
-          <FaSass fill="#e8c99b" size="2.5rem" className={styles.icon} />
+        <div className={styles.skill} title="Sass">
+          <SiSass fill="#e8c99b" size="2.5rem" className={styles.icon} />
           <div className={styles.progressBarContainer}>
-            <div className={styles.progress} style={{ width: "90%" }}></div>
+            <div className={styles.progress} style={{ width: "85%" }}></div>
           </div>
         </div>
-        <div className={styles.skill}>
-          <DiResponsive fill="#e8c99b" size="2.5rem" className={styles.icon} />
+        <div className={styles.skill} title="Tailwind CSS">
+          <SiTailwindcss fill="#e8c99b" size="2.5rem" className={styles.icon} />
           <div className={styles.progressBarContainer}>
-            <div className={styles.progress} style={{ width: "70%" }}></div>
+            <div className={styles.progress} style={{ width: "85%" }}></div>
           </div>
         </div>
-        <div className={styles.skill}>
-          <SiStorybook fill="#e8c99b" size="2.5rem" className={styles.icon} />
-          <div className={styles.progressBarContainer}>
-            <div className={styles.progress} style={{ width: "50%" }}></div>
-          </div>
-        </div>
-        <div className={styles.skill}>
+        <div className={styles.skill} title="Framer Motion">
           <SiFramer fill="#e8c99b" size="2.5rem" className={styles.icon} />
           <div className={styles.progressBarContainer}>
-            <div className={styles.progress} style={{ width: "50%" }}></div>
+            <div className={styles.progress} style={{ width: "80%" }}></div>
           </div>
         </div>
       </div>
       <div className={styles.skillContainer2}>
-        <div className={styles.skill}>
-          <DiBootstrap fill="#e8c99b" size="2.5rem" className={styles.icon} />
-          <div className={styles.progressBarContainer}>
-            <div className={styles.progress} style={{ width: "70%" }}></div>
-          </div>
-        </div>
-        <div className={styles.skill}>
-          <SiGit fill="#e8c99b" size="2.5rem" className={styles.icon} />
-          <div className={styles.progressBarContainer}>
-            <div className={styles.progress} style={{ width: "70%" }}></div>
-          </div>
-        </div>
-        <div className={styles.skill}>
-          <SiJavascript fill="#e8c99b" size="2.5rem" className={styles.icon} />
-          <div className={styles.progressBarContainer}>
-            <div className={styles.progress} style={{ width: "65%" }}></div>
-          </div>
-        </div>
-        <div className={styles.skill}>
-          <SiReact fill="#e8c99b" size="2.5rem" className={styles.icon} />
-          <div className={styles.progressBarContainer}>
-            <div className={styles.progress} style={{ width: "65%" }}></div>
-          </div>
-        </div>
-        <div className={styles.skill}>
-          <SiTypescript fill="#e8c99b" size="2.5rem" className={styles.icon} />
-          <div className={styles.progressBarContainer}>
-            <div className={styles.progress} style={{ width: "60%" }}></div>
-          </div>
-        </div>
-        <div className={styles.skill}>
-          <SiNextdotjs fill="#e8c99b" size="2.5rem" className={styles.icon} />
-          <div className={styles.progressBarContainer}>
-            <div className={styles.progress} style={{ width: "50%" }}></div>
-          </div>
-        </div>
-        <div className={styles.skill}>
+        <div className={styles.skill} title="Node.js">
           <SiNodedotjs fill="#e8c99b" size="2.5rem" className={styles.icon} />
           <div className={styles.progressBarContainer}>
-            <div className={styles.progress} style={{ width: "65%" }}></div>
+            <div className={styles.progress} style={{ width: "85%" }}></div>
           </div>
         </div>
-        <div className={styles.skill}>
-          <SiApple fill="#e8c99b" size="2.5rem" className={styles.icon} />
+        <div className={styles.skill} title="Fastify">
+          <SiFastify fill="#e8c99b" size="2.5rem" className={styles.icon} />
           <div className={styles.progressBarContainer}>
-            <div className={styles.progress} style={{ width: "40%" }}></div>
+            <div className={styles.progress} style={{ width: "80%" }}></div>
+          </div>
+        </div>
+        <div className={styles.skill} title="Prisma">
+          <SiPrisma fill="#e8c99b" size="2.5rem" className={styles.icon} />
+          <div className={styles.progressBarContainer}>
+            <div className={styles.progress} style={{ width: "80%" }}></div>
+          </div>
+        </div>
+        <div className={styles.skill} title="MySQL">
+          <SiMysql fill="#e8c99b" size="2.5rem" className={styles.icon} />
+          <div className={styles.progressBarContainer}>
+            <div className={styles.progress} style={{ width: "75%" }}></div>
+          </div>
+        </div>
+        <div className={styles.skill} title="Supabase">
+          <SiSupabase fill="#e8c99b" size="2.5rem" className={styles.icon} />
+          <div className={styles.progressBarContainer}>
+            <div className={styles.progress} style={{ width: "85%" }}></div>
+          </div>
+        </div>
+        <div className={styles.skill} title="Docker">
+          <SiDocker fill="#e8c99b" size="2.5rem" className={styles.icon} />
+          <div className={styles.progressBarContainer}>
+            <div className={styles.progress} style={{ width: "70%" }}></div>
+          </div>
+        </div>
+        <div className={styles.skill} title="GCP">
+          <SiGooglecloud fill="#e8c99b" size="2.5rem" className={styles.icon} />
+          <div className={styles.progressBarContainer}>
+            <div className={styles.progress} style={{ width: "65%" }}></div>
           </div>
         </div>
       </div>
