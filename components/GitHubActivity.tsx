@@ -1,5 +1,4 @@
-import React from "react";
-import GitHubCalendar from "react-github-calendar";
+import { GitHubCalendar } from "react-github-calendar";
 import styles from "./GitHubActivity.module.scss";
 import { motion } from "framer-motion";
 
