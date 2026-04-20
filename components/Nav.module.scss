@@ -3,18 +3,18 @@
 .container {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   align-self: stretch;
-  flex-grow: 1;
+  @include page-gutter;
+  padding-top: 1rem;
 }
 
 .logoLink {
   text-decoration: none;
   background: transparent;
   display: flex;
-  padding: 10px;
   justify-content: center;
-  align-self: flex-start;
+  padding: 1rem 0;
 }
 
 .navMenu {
@@ -22,7 +22,7 @@
   justify-content: flex-end;
   align-items: center;
   column-gap: 2rem;
-  padding: 20px;
+  padding: 1rem 0;
 
   .navLink {
     text-decoration: none;
@@ -31,8 +31,9 @@
     font-weight: 500;
     transition: color 0.3s ease, border-bottom 0.3s ease;
     border-bottom: 2px solid transparent;
+    padding-bottom: 4px;
 
-    &:hover {
+    &:hover, &.active {
       color: $palegold;
       border-bottom: 2px solid $palegold;
     }

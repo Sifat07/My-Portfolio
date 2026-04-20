@@ -46,38 +46,46 @@ const stagger = {
 };
 
 const Intro = () => {
-  const [aboutText, setAboutText] = React.useState("Sifat");
-  const [workText, setWorkText] = React.useState("I am");
-  const [contactText, setContactText] = React.useState("Hey!");
+  const [isRevealed, setIsRevealed] = React.useState(false);
+  const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null);
 
-  const showAboutText = () => {
-    setAboutText("About");
-  };
+  const toggleReveal = () => setIsRevealed(!isRevealed);
 
-  const hideAboutText = () => {
-    setAboutText("Sifat");
-  };
-
-  const showWorkText = () => {
-    setWorkText("Work");
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      toggleReveal();
+    }
   };
 
-  const hideWorkText = () => {
-    setWorkText("I am");
-  };
-  const showContactText = () => {
-    setContactText("Contact");
-  };
+  const sections = [
+    {
+      id: "contact",
+      default: "Hey!",
+      active: "Contact",
+      path: "/contact",
+    },
+    {
+      id: "work",
+      default: "I am",
+      active: "Work",
+      path: "/work",
+    },
+    {
+      id: "about",
+      default: "Sifat",
+      active: "About",
+      path: "/about",
+    },
+  ];
 
-  const hideContactText = () => {
-    setContactText("Hey!");
-  };
-
-  const changeText = () => {
-    contactText == "Hey!" ? showContactText() : hideContactText();
-    workText == "I am" ? showWorkText() : hideWorkText();
-    aboutText == "Sifat" ? showAboutText() : hideAboutText();
-  };
+  const socialLinks = [
+    { icon: FaGithub, href: "https://github.com/Sifat07", label: "GitHub" },
+    { icon: FaLinkedinIn, href: "https://www.linkedin.com/in/sifat-jasim-81ab8580/", label: "LinkedIn" },
+    { icon: FaTwitter, href: "https://twitter.com/Sifat_sr4", label: "Twitter" },
+    { icon: FaYoutube, href: "https://www.youtube.com/channel/UCnSSV3HEPk-wBm-1c38s5yA", label: "YouTube" },
+    { icon: FaFacebook, href: "https://www.facebook.com/Madridista.Sifat7/", label: "Facebook" },
+  ];
 
   const bounceTransition = {
     y: {
@@ -85,13 +93,6 @@ const Intro = () => {
       repeat: Infinity,
       repeatType: "reverse" as const,
       ease: "easeOut" as const,
-    },
-    backgroundColor: {
-      duration: 0,
-      repeat: Infinity,
-      repeatType: "reverse" as const,
-      ease: "easeOut" as const,
-      repeatDelay: 2,
     },
   };
 
@@ -101,172 +102,80 @@ const Intro = () => {
       animate="animate"
       exit={{ opacity: 0 }}
       className={styles.container}
-      onClick={() => changeText()}
+      onClick={toggleReveal}
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+      role="button"
+      aria-label="Click to reveal navigation"
     >
       <motion.div
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
         className={styles.texts}
       >
-        <motion.div variants={stagger} className={styles.tagDiv}>
-          <p>{"<h1>"}</p>
-          {contactText == "Contact" ? (
-            <motion.h1
-              variants={fadeInUp}
-              whileHover={{ translateX: 20 }}
-              onHoverStart={(e) => showContactText()}
-              onHoverEnd={(e) => hideContactText()}
-              style={{ cursor: "pointer", color: "white" }}
-              onClick={(e) => {
-                e.stopPropagation();
-                if (contactText == "Contact") router.push("/contact");
-              }}
-            >
-              {contactText}
-            </motion.h1>
-          ) : (
-            <motion.h1
-              variants={fadeInUp}
-              whileHover={{ translateX: 20 }}
-              onHoverStart={(e) => showContactText()}
-              onHoverEnd={(e) => hideContactText()}
-              style={{ cursor: "pointer", color: "white" }}
-            >
-              {contactText}
-            </motion.h1>
-          )}
+        <motion.div variants={stagger} className={styles.contentWrapper}>
+          {sections.map((section, index) => {
+            const isSectionActive = isRevealed || hoveredIndex === index;
+            const displayText = isSectionActive ? section.active : section.default;
 
-          <br></br>
-          <p>{"</h1>"}</p>
+            return (
+              <div key={section.id} className={styles.tagDiv}>
+                <span className={styles.codeTag}>{"<h1>"}</span>
+                <motion.h1
+                  variants={fadeInUp}
+                  whileHover={{ translateX: 20 }}
+                  onHoverStart={() => setHoveredIndex(index)}
+                  onHoverEnd={() => setHoveredIndex(null)}
+                  style={{ 
+                    cursor: "pointer", 
+                    color: isSectionActive && section.id === 'contact' ? "white" : undefined 
+                  }}
+                  onClick={(e) => {
+                    if (isSectionActive) {
+                      e.stopPropagation();
+                      router.push(section.path);
+                    }
+                  }}
+                >
+                  {displayText}
+                </motion.h1>
+                <span className={styles.codeTag}>{"</h1>"}</span>
+              </div>
+            );
+          })}
         </motion.div>
-
-        <div className={styles.tagDiv}>
-          <p>{"<h1>"}</p>
-          {workText == "Work" ? (
-            <motion.h1
-              variants={fadeInUp}
-              whileHover={{ translateX: 20 }}
-              onHoverStart={(e) => showWorkText()}
-              onHoverEnd={(e) => hideWorkText()}
-              style={{ cursor: "pointer" }}
-              onClick={(e) => {
-                e.stopPropagation();
-                if (workText == "Work") router.push("/work");
-              }}
-            >
-              {workText}
-            </motion.h1>
-          ) : (
-            <motion.h1
-              variants={fadeInUp}
-              whileHover={{ translateX: 20 }}
-              onHoverStart={(e) => showWorkText()}
-              onHoverEnd={(e) => hideWorkText()}
-              style={{ cursor: "pointer" }}
-            >
-              {workText}
-            </motion.h1>
-          )}
-          <br></br>
-          <p>{"</h1>"}</p>
-        </div>
-        <div className={styles.tagDiv}>
-          <p>{"<h1>"}</p>
-          {aboutText == "About" ? (
-            <motion.h1
-              variants={fadeInUp}
-              whileHover={{ translateX: 20 }}
-              onHoverStart={(e) => showAboutText()}
-              onHoverEnd={(e) => hideAboutText()}
-              style={{ cursor: "pointer" }}
-              onClick={(e) => {
-                e.stopPropagation();
-                if (aboutText == "About") router.push("/about");
-              }}
-            >
-              {aboutText}
-            </motion.h1>
-          ) : (
-            <motion.h1
-              variants={fadeInUp}
-              whileHover={{ translateX: 20 }}
-              onHoverStart={(e) => showAboutText()}
-              onHoverEnd={(e) => hideAboutText()}
-              style={{ cursor: "pointer" }}
-            >
-              {aboutText}
-            </motion.h1>
-          )}
-
-          <br></br>
-          <p>{"</h1>"}</p>
-        </div>
       </motion.div>
 
       <div className={styles.socials}>
-        <motion.a
-          whileHover={{ scale: 1.5 }}
-          href={"https://github.com/Sifat07"}
-          target="_blank"
-          rel="noreferrer"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <FaGithub fill="#e8c99b" size="2.5rem" cursor="pointer" />
-        </motion.a>
-        <motion.a
-          whileHover={{ scale: 1.5 }}
-          href="https://www.linkedin.com/in/sifat-jasim-81ab8580/"
-          target="_blank"
-          rel="noreferrer"
-          onClick={(e) => e.stopPropagation()}
-        >
-          {" "}
-          <FaLinkedinIn fill="#e8c99b" size="2.5rem" cursor="pointer" />
-        </motion.a>
-        <motion.a
-          whileHover={{ scale: 1.5 }}
-          href="https://twitter.com/Sifat_sr4"
-          target="_blank"
-          rel="noreferrer"
-          onClick={(e) => e.stopPropagation()}
-        >
-          {" "}
-          <FaTwitter fill="#e8c99b" size="2.5rem" cursor="pointer" />
-        </motion.a>
-        <motion.a
-          whileHover={{ scale: 1.5 }}
-          href="https://www.youtube.com/channel/UCnSSV3HEPk-wBm-1c38s5yA"
-          target="_blank"
-          rel="noreferrer"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <FaYoutube fill="#e8c99b" size="2.5rem" />
-        </motion.a>
-        <motion.a
-          whileHover={{ scale: 1.5 }}
-          href="https://www.facebook.com/Madridista.Sifat7/"
-          target="_blank"
-          rel="noreferrer"
-          onClick={(e) => e.stopPropagation()}
-        >
-          {" "}
-          <FaFacebook fill="#e8c99b" size="2.5rem" cursor="pointer" />
-        </motion.a>
+        {socialLinks.map((social) => (
+          <motion.a
+            key={social.label}
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+            href={social.href}
+            target="_blank"
+            rel="noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            aria-label={social.label}
+          >
+            <social.icon fill="#e8c99b" size="2.5rem" />
+          </motion.a>
+        ))}
       </div>
+
       <div className={styles.tapBehavior}>
         <motion.p
           transition={bounceTransition}
           animate={{
-            y: ["100%", "-100%"],
-            backgroundColor: "rgba(0,0,0,0)",
+            y: [0, -10, 0],
           }}
         >
-          {" "}
-          Tap Anywhere
+          {isRevealed ? "Tap to hide" : "Tap Anywhere"}
         </motion.p>
       </div>
     </motion.div>
   );
 };
+
 
 export default Intro;

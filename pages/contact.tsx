@@ -1,8 +1,8 @@
 import React from "react";
-import Nav from "../components/Nav";
-import styles from "./contact.module.scss";
-import { FaEnvelope, FaPhone, FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaEnvelope, FaPhone, FaLinkedin, FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
+import styles from "./contact.module.scss";
+import Layout from "../components/Layout";
 
 const Contact = () => {
   const contactMethods = [
@@ -33,41 +33,41 @@ const Contact = () => {
   ];
 
   return (
-    <div className={styles.container}>
-      <Nav />
-      
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className={styles.content}
-      >
-        <h1 className={styles.title}>Get in Touch</h1>
-        <p className={styles.description}>
-          I{"'"}m always open to discussing new projects, creative ideas or opportunities to be part of your visions.
-        </p>
+    <Layout title="Contact" description="Get in touch with Sifat Jasim for projects, collaborations, or opportunities.">
+      <div className={styles.container}>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className={styles.content}
+        >
+          <h1 className={styles.title}>Get in Touch</h1>
+          <p className={styles.description}>
+            I{"'"}m always open to discussing new projects, creative ideas or opportunities to be part of your visions.
+          </p>
 
-        <div className={styles.contactGrid}>
-          {contactMethods.map((method, index) => (
-            <motion.a
-              key={index}
-              href={method.link}
-              target="_blank"
-              rel="noreferrer"
-              className={styles.contactCard}
-              whileHover={{ scale: 1.05, borderColor: "#e8c99b" }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <div className={styles.icon}>{method.icon}</div>
-              <div className={styles.info}>
-                <span className={styles.label}>{method.label}</span>
-                <span className={styles.value}>{method.value}</span>
-              </div>
-            </motion.a>
-          ))}
-        </div>
-      </motion.div>
-    </div>
+          <div className={styles.contactGrid}>
+            {contactMethods.map((method, index) => (
+              <motion.a
+                key={index}
+                href={method.link}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.contactCard}
+                whileHover={{ scale: 1.05, borderColor: "#e8c99b" }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <div className={styles.icon}>{method.icon}</div>
+                <div className={styles.info}>
+                  <span className={styles.label}>{method.label}</span>
+                  <span className={styles.value}>{method.value}</span>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </Layout>
   );
 };
 

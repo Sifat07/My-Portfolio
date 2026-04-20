@@ -16,25 +16,40 @@ div.container {
     flex-direction: column;
     row-gap: 15px;
 
+    .contentWrapper {
+      display: flex;
+      flex-direction: column;
+      row-gap: 1.5rem;
+    }
+
     .tagDiv {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: space-between;
     }
+
     h1 {
       color: $palegold;
       font-size: 6.5rem;
       font-weight: bold;
       line-height: 5.5rem;
+      transition: color 0.3s ease;
+      
+      &:focus-visible {
+        outline: 2px solid $palegold;
+        outline-offset: 10px;
+      }
     }
-    p {
+
+    .codeTag {
       color: $grey;
-      opacity: 10%;
-      font-family: pacifico;
+      opacity: 0.2;
+      font-family: "pacifico", cursive;
       font-size: 1rem;
       font-weight: bold;
       line-height: 1rem;
+      user-select: none;
     }
   }
   .socials {

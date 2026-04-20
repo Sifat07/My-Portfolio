@@ -1,10 +1,11 @@
 import "../styles/globals.css";
 import { AnimatePresence } from "framer-motion";
+import type { AppProps } from "next/app";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }: AppProps) {
   return (
-    <AnimatePresence mode="wait">
-      <Component {...pageProps} />
+    <AnimatePresence mode="wait" initial={false}>
+      <Component {...pageProps} key={router.asPath} />
     </AnimatePresence>
   );
 }

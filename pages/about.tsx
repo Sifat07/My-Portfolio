@@ -1,17 +1,14 @@
 import Link from "next/link";
-import router from "next/router";
 import React, { useState } from "react";
 import Education from "../components/Education";
 import Experience from "../components/Experience";
-import Nav from "../components/Nav";
 import Skills from "../components/Skills";
 import styles from "./about.module.scss";
-import TabC from "../components/Tab/Tabs";
 import Tabs from "../components/Tab/Tabs";
 import Image from "next/image";
 import avatarImage from "../components/assets/images/IMG_1050.png";
-
 import GitHubActivity from "../components/GitHubActivity";
+import Layout from "../components/Layout";
 
 type TabsType = {
   label: string;
@@ -46,48 +43,56 @@ const tabs: TabsType = [
 const About = () => {
   const [selectedTab, setSelectedTab] = useState<number>(tabs[0].index);
   return (
-    <div className={styles.container}>
-      <Nav />
-      <div className={styles.aboutContainer}>
-        <div className={styles.aboutText}>
-          <h1>
-            <p>{"<p>"}</p>
-            <br></br>
-            Hi, I{"'"}m Sifat Jasim, working as a Software Engineer for
-            ngaze in Dhaka. I have a serious passion for minimalistic designs, UI
-            effects, animations, and creating intuitive, dynamic user
-            experiences.
-            <br></br>
-            <br></br>
-            Problem solver, quick learner with high attention to detail. Fan of
-            football , a Madridista. When I{"'"}m not working I listen to music
-            and watch TV series and movies. <br></br>
-            <br></br>
-            Interested in the entire frontend spectrum and working on ambitious
-            projects with positive people.
-            <br></br>
-            <br></br>
-            <p>{"</p>"}</p>
-          </h1>
-        </div>
-        <div className={styles.avatarContainer}>
-          <div className={styles.avatar}>
-            <Image
-              className={styles.avatarImage}
-              alt="Sifat Jasim"
-              src={avatarImage}
-              style={{ width: '100%', height: 'auto' }}
-              quality={100}
-              placeholder="blur"
-            ></Image>
+    <Layout title="About" description="Learn more about Sifat Jasim, a software engineer with a passion for minimalistic design and dynamic user experiences.">
+      <div className={styles.container}>
+        <div className={styles.aboutContainer}>
+          <div className={styles.avatarContainer}>
+            <div className={styles.avatar}>
+              <Image
+                className={styles.avatarImage}
+                alt="Sifat Jasim"
+                src={avatarImage}
+                fill
+                sizes="(max-width: 768px) 80vw, (max-width: 1200px) 40vw, 500px"
+                priority
+                style={{ objectFit: 'cover' }}
+                quality={100}
+                placeholder="blur"
+              />
+            </div>
+          </div>
+
+          <div className={styles.aboutText}>
+            <span className={styles.codeTag}>{"<intro>"}</span>
+            <h1>
+              Hi, I'm <span>Sifat Jasim</span>
+            </h1>
+            <div className={styles.bioContent}>
+              <p>
+                I'm a Software Engineer based in Dhaka, currently engineering 
+                impactful solutions at <strong>ngaze</strong>. My passion lies in crafting 
+                minimalistic designs, fluid UI effects, and intuitive user experiences.
+              </p>
+              <p>
+                I'm a dedicated problem solver and quick learner with high attention 
+                to detail. When I'm not writing code, you can find me supporting 
+                Real Madrid or exploring the latest in cinematography.
+              </p>
+              <p>
+                I thrive in the entire frontend spectrum and love collaborating on 
+                ambitious projects with forward-thinking people.
+              </p>
+            </div>
+            <span className={styles.codeTag}>{"</intro>"}</span>
           </div>
         </div>
-      </div>
 
-      <div className={styles.tabContainer}>
-        <Tabs selectedTab={selectedTab} onClick={setSelectedTab} tabs={tabs} />
+        <div className={styles.tabSection}>
+          <h2 className={styles.sectionTitle}>Details</h2>
+          <Tabs selectedTab={selectedTab} onClick={setSelectedTab} tabs={tabs} />
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 
